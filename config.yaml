@@ -3,3 +3,4 @@ theme: light
 edition: all
 feeds:
   - https://programadorwebvalencia.com/feed/clojure/
+  - https://jgomo3.info/Clojure.xml
