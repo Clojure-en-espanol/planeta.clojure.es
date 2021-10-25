@@ -3,7 +3,7 @@ name: build-pack
 on: 
   push:
     branches:
-    - master
+    - main
   schedule:
     - cron: "28 4 * * *"
 
