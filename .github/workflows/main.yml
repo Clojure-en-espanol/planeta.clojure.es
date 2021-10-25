@@ -1,0 +1,35 @@
+name: build-pack
+
+on: 
+  push:
+    branches:
+    - master
+  schedule:
+    - cron: "28 4 * * *"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Download RSSPAPER
+      run: |
+        sudo apt install wget
+        wget https://github.com/tanrax/RSSPAPER/releases/download/v1.1.2/rsspaper-1.1.2-standalone.jar
+    - name: Build
+      run: |
+        java -jar rsspaper-1.1.2-standalone.jar
+    - name: Upload new dist
+      run: |
+        rm -rf docs/index.html docs/static
+        mv dist/index.html docs
+        mv dist/static docs/
+        git config user.email "action@github.com"
+        git config user.name "GitHub Action"
+        git add docs/index.html
+        git add docs/static/
+        git commit -m "$(date +"%F")"
+        git push -f origin master
+
