@@ -17,10 +17,10 @@ jobs:
     - name: Download RSSPAPER
       run: |
         sudo apt install wget
-        wget https://github.com/tanrax/RSSPAPER/releases/download/v1.1.2/rsspaper-1.1.2-standalone.jar
+        wget https://github.com/tanrax/RSSPAPER/releases/download/v1.1.3/rsspaper-1.1.3-standalone.jar
     - name: Build
       run: |
-        java -jar rsspaper-1.1.2-standalone.jar
+        java -jar rsspaper-1.1.3-standalone.jar
     - name: Upload new dist
       run: |
         rm -rf docs/index.html docs/static
