@@ -1,9 +1,10 @@
 /* Global */
 :root {
-    --color-black: black;
-    --color-gray: gray;
-    --color-background: #f9f7f1;
+    --color-black: white;
+    --color-gray: #5881d8;
+    --color-background: #83b265;
     --height-img: 10rem;
+    --height-img-mobile: 12rem;
 }
 
 @font-face {
@@ -85,8 +86,8 @@ pre {
 
 .article__header-img > a > img {
     height: var(--height-img);
-    object-position: top;
-    object-fit: cover;
+    object-position: center;
+    object-fit: contain;
 }
 .article__random-background {
     height: 100%;
