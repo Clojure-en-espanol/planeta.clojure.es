@@ -23,13 +23,15 @@ jobs:
         java -jar rsspaper-1.2.0-standalone.jar
     - name: Upload new dist
       run: |
-        rm -rf docs/index.html docs/static
+        rm -rf docs/index.html docs/static last_build
         mv dist/index.html docs
         mv dist/static docs/
         git config user.email "action@github.com"
         git config user.name "GitHub Action"
+        echo "$(date +"%F")" > last_build
         git add docs/index.html
         git add docs/static/
+        git add last_build
         git commit -m "$(date +"%F")"
         git push -f origin main
 
